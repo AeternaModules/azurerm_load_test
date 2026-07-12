@@ -1,3 +1,7 @@
+output "load_tests_id" {
+  description = "Map of id values across all load_tests, keyed the same as var.load_tests"
+  value       = { for k, v in azurerm_load_test.load_tests : k => v.id }
+}
 output "load_tests_data_plane_uri" {
   description = "Map of data_plane_uri values across all load_tests, keyed the same as var.load_tests"
   value       = { for k, v in azurerm_load_test.load_tests : k => v.data_plane_uri }
